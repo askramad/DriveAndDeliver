@@ -1,0 +1,19 @@
+image: maven:latest
+
+stages:
+  - build
+  - test
+
+cache:
+  paths:
+    - .m2/repository
+
+build:
+  stage: build
+  script:
+    - mvn clean install -DskipTests
+
+test:
+  stage: test
+  script:
+    - mvn test
